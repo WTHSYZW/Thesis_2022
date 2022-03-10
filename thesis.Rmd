@@ -961,6 +961,11 @@ ggplot(weibo_predict_sf) +
   theme_map()
 
 ggplot(weibo_predict_sf) +
+  geom_sf(aes(color = weibo_predict_sf$noisy_pred_1), size = 0.1) +
+  scale_color_viridis_c() +
+  theme_map()
+
+ggplot(weibo_predict_sf) +
   geom_sf(aes(color = weibo_predict_sf$pred), size = 0.1) +
   scale_color_viridis_c() +
   theme_map()
@@ -970,6 +975,14 @@ ggplot(weibo_predict_sf) +
 # weibo_clip$positive_p
 # write.csv(weibo_predict,"D:\\R sets\\independent-study\\predict.csv")
 # write.csv(weibo_clip,"D:\\R sets\\independent-study\\exist.csv")
+```
+```{r}
+a = weibo_predict_sf$pred
+b = weibo_predict_sf$noisy_pred_1
+c = weibo_clip$positive_p
+
+print (mean (b) -mean (a))
+print (mean (b) -mean (c))
 ```
 
 # ```{r, message=FALSE, warning=FALSE, results='hide'}
@@ -993,62 +1006,68 @@ ggplot(weibo_predict_sf) +
 
 # Predict based on RANDOM restaurant generated in Arcgis
 # Display different sentiment map of resturants based on change of residential and business zoning
-```{r, message=FALSE, results='hide'}
+# ```{r, message=FALSE, results='hide'}
+# 
+# for (i in seq(5, 25, by=5)) {
+#   pl_restaurant_access <- accessibility(r5r_core,
+#                                    origins = weibo_clip,
+#                                    destinations = grid_points,
+#                                    opportunities_colname = "num_pl_restaurant",
+#                                    mode = "WALK",
+#                                    decay_function = "step",
+#                                    cutoffs = i,
+#                                    verbose = FALSE) %>%
+#     mutate(id = as.numeric(from_id)) %>%
+#     select("id", "accessibility")
+# 
+#   colnames(pl_restaurant_access) <- c("id",
+#                                    paste("pl_restaurant_access_", i, sep = ""))
+# 
+#   weibo_clip <- weibo_clip %>%
+#     left_join(pl_restaurant_access)
+# }
+# ```
 
-for (i in seq(5, 25, by=5)) {
-  pl_restaurant_access <- accessibility(r5r_core,
-                                   origins = weibo_clip,
-                                   destinations = grid_points,
-                                   opportunities_colname = "num_pl_restaurant",
-                                   mode = "WALK",
-                                   decay_function = "step",
-                                   cutoffs = i,
-                                   verbose = FALSE) %>%
-    mutate(id = as.numeric(from_id)) %>%
-    select("id", "accessibility")
-
-  colnames(pl_restaurant_access) <- c("id",
-                                   paste("pl_restaurant_access_", i, sep = ""))
-
-  weibo_clip <- weibo_clip %>%
-    left_join(pl_restaurant_access)
-}
-```
-
-```{r, message=FALSE, warning=FALSE, results='hide'}
-weibo_predict <- weibo_clip
-
-weibo_predict$restaurant_access_15 <- weibo_clip$pl_restaurant_access_15
-
-weibo_predict$positive_p <- predict(full2_model, weibo_predict)
-
-ggplot(weibo_predict) +
-  geom_sf(aes(color = weibo_predict$positive_p), size = 0.1) +
-  scale_color_viridis_c() +
-  theme_map()
-
-write.csv(weibo_predict,"D:\\R sets\\independent-study\\predict_pl.csv")
-
-weibo_existing_hist <- ggplot(weibo_clip) +
-  geom_histogram(aes(x = positive_p),
-                 bins = 30)
-
-weibo_predict_hist <- ggplot(weibo_predict) +
-  geom_histogram(aes(x = positive_p),
-                 bins = 30)
-
-weibo_existing_hist
-
-weibo_predict_hist
-
-grid.arrange(weibo_existing_hist, weibo_predict_hist,
-             ncol = 2)
-
-ggplot(weibo_clip) +
-     geom_point(aes(x = restaurant_access_15, y= positive_p))
-ggplot(weibo_predict) +
-     geom_point(aes(x = restaurant_access_15, y= positive_p))
-```
+# ```{r, message=FALSE, warning=FALSE, results='hide'}
+# 
+# weibo_predict2 <- weibo_clip
+# 
+# weibo_predict2$restaurant_access_15 <- weibo_clip$pl_restaurant_access_15
+# 
+# weibo_predict2$positive_pred <- predict(Timeslot8_model, weibo_predict2)
+# 
+# weibo_predict2_sf = weibo_predict2 %>%
+#   mutate(geom = gsub(geometry,pattern="(\\))|(\\()|c",replacement = ""))%>%
+#   tidyr::separate(geom,into=c("lat","lon"),sep=",")%>%
+#   st_as_sf(.,coords=c("lat","lon"),crs= 'WGS84')
+# 
+# ggplot(weibo_predict2_sf) +
+#   geom_sf(aes(color = weibo_predict2_sf$positive_pred), size = 0.1) +
+#   scale_color_viridis_c() +
+#   theme_map()
+# 
+# # write.csv(weibo_predict,"D:\\R sets\\independent-study\\predict_pl.csv")
+# 
+# weibo_existing_hist <- ggplot(weibo_clip) +
+#   geom_histogram(aes(x = positive_p),
+#                  bins = 30)
+# 
+# weibo_predict2_hist <- ggplot(weibo_predict2_sf) +
+#   geom_histogram(aes(x = positive_pred),
+#                  bins = 30)
+# 
+# weibo_existing_hist
+# 
+# weibo_predict2_hist
+# 
+# grid.arrange(weibo_existing_hist, weibo_predict2_hist,
+#              ncol = 2)
+# 
+# ggplot(weibo_clip) +
+#      geom_point(aes(x = restaurant_access_15, y= positive_p))
+# ggplot(weibo_predict2) +
+#      geom_point(aes(x = restaurant_access_15, y= positive_pred))
+# ```
 
 ## Prediction of restaurants location based on change of residential and business zones, noticed the planning documents only reflect the conditions of central area of Jiaxing, I intended to replace the restaurants locations within central area, keeping other locations unchanged.
 
@@ -1226,16 +1245,22 @@ for (i in seq(5, 25, by=5)) {
 }
 ```
 ```{r, message=FALSE, warning=FALSE, results='hide'}
-weibo_predict2 <- weibo_clip
+weibo_predict3 <- weibo_clip
 
-weibo_predict2$restaurant_access_15 <- weibo_clip$pr_restaurant_access_15
+weibo_predict3$restaurant_access_15 <- weibo_clip$pr_restaurant_access_15
 
-weibo_predict2$positive_p <- predict(full2_model, weibo_predict2)
+weibo_predict3$positive_pred <- predict(Timeslot8_model, weibo_predict3)
 
-ggplot(weibo_predict2) +
-  geom_sf(aes(color = weibo_predict2$positive_p), size = 0.1) +
+weibo_predict3_sf = weibo_predict3 %>%
+  mutate(geom = gsub(geometry,pattern="(\\))|(\\()|c",replacement = ""))%>%
+  tidyr::separate(geom,into=c("lat","lon"),sep=",")%>%
+  st_as_sf(.,coords=c("lat","lon"),crs= 'WGS84')
+
+ggplot(weibo_predict3_sf) +
+  geom_sf(aes(color = weibo_predict3_sf$positive_pred), size = 0.1) +
   scale_color_viridis_c() +
   theme_map()
+
 
 # write.csv(weibo_predict,"D:\\R sets\\independent-study\\predict_pl.csv")
 
@@ -1243,21 +1268,21 @@ weibo_existing_hist <- ggplot(weibo_clip) +
   geom_histogram(aes(x = positive_p),
                  bins = 30)
 
-weibo_predict2_hist <- ggplot(weibo_predict2) +
-  geom_histogram(aes(x = positive_p),
+weibo_predict3_hist <- ggplot(weibo_predict3) +
+  geom_histogram(aes(x = positive_pred),
                  bins = 30)
 
 weibo_existing_hist
 
-weibo_predict2_hist
+weibo_predict3_hist
 
-grid.arrange(weibo_existing_hist, weibo_predict_hist,
+grid.arrange(weibo_existing_hist, weibo_predict3_hist,
              ncol = 2)
 
 ggplot(weibo_clip) +
      geom_point(aes(x = restaurant_access_15, y= positive_p))
-ggplot(weibo_predict2) +
-     geom_point(aes(x = restaurant_access_15, y= positive_p))
+ggplot(weibo_predict3) +
+     geom_point(aes(x = restaurant_access_15, y= positive_pred))
 ```
 
 ## scenario 2: double the number of school spreading out the city
@@ -1274,6 +1299,28 @@ doubleschool <- rbindx(newschool_df, school)
 
 doubleschool_point <- st_as_sf(x = doubleschool, 
                         crs = "WGS84")
+
+ggplot() +
+  geom_sf(data = boundary, color = "black") +
+  geom_sf(data = school, color = 'red', size = 1) +
+  geom_sf(data = doubleschool_point, color = 'green', size = 1) +
+  theme_map()
+
+ggplot() +
+  geom_sf(data = boundary, color = "black") +
+  geom_sf(data = school, color = 'red') +
+  theme_map()
+
+ggplot() +
+  geom_sf(data = boundary, color = "black") +
+  geom_sf(data = doubleschool, color = 'red') +
+  theme_map()
+
+ggplot() +
+  geom_sf(data = boundary, color = "black") +
+  geom_sf(data = newschool, color = 'red') +
+  geom_sf(data = school, color = 'green')
+  theme_map()
 ```
 ## get number of doublesschool in each grid cell and calculate accessibility with best fit
 
@@ -1304,24 +1351,59 @@ for (i in seq(20, 30, by=5)) {
 
 weibo_predict_scenario2 <- weibo_clip
 
-weibo_predict_scenario2$doubleschool_access_25 <- weibo_clip$doubleschool_access_25
+weibo_predict_scenario2$school_access_25 <- weibo_clip$doubleschool_access_25
 
-weibo_predict_scenario2$positive_p <- predict(full2_model, weibo_predict_scenario2)
+weibo_predict_scenario2$positive_p <- predict(Timeslot8_model, weibo_predict_scenario2)
 
-ggplot(weibo_predict_scenario2) +
-  geom_sf(aes(color = weibo_predict_scenario2$positive_p), size = 0.1) +
+weibo_predict_scenario2_sf = weibo_predict_scenario2 %>%
+  mutate(geom = gsub(geometry,pattern="(\\))|(\\()|c",replacement = ""))%>%
+  tidyr::separate(geom,into=c("lat","lon"),sep=",")%>%
+  st_as_sf(.,coords=c("lat","lon"),crs= 'WGS84')
+
+ggplot(weibo_predict_scenario2_sf) +
+  geom_sf(aes(color = weibo_predict_scenario2_sf$positive_p), size = 0.1) +
   scale_color_viridis_c() +
   theme_map()
 ```
+```{r}
+a = weibo_predict_sf$pred
+b = weibo_predict_scenario2_sf$positive_p
+c = weibo_predict_sf$positive_p
+
+print (mean (b) -mean (a))
+print (mean (b) -mean (c))
+```
+
 ## scenario 3: turn school into greenspace
 ```{r, message=FALSE, warning=FALSE, results='hide'}
 
 transgreen <- school
 
-newgreen <- rbindx(transgreen, greenspace)
+newgreen <- rbindx(transgreen, greenspace_points)
 
 newgreen_point <- st_as_sf(x = newgreen, 
                         crs = "WGS84")
+ggplot() +
+  geom_sf(data = boundary, color = "black") +
+  geom_sf(data = greenspace_points, color = 'red', size = 1) +
+  geom_sf(data = newgreen_point, color = 'green', size = 1) +
+  theme_map()
+
+ggplot() +
+  geom_sf(data = boundary, color = "black") +
+  geom_sf(data = greenspace_points, color = 'red') +
+  theme_map()
+
+ggplot() +
+  geom_sf(data = boundary, color = "black") +
+  geom_sf(data = newgreen_point, color = 'red') +
+  theme_map()
+
+ggplot() +
+  geom_sf(data = boundary, color = "black") +
+  geom_sf(data = greenspace_points, color = 'red') +
+  geom_sf(data = school, color = 'green') +
+  theme_map()
 ```
 ## get number of newgreenspace in each grid cell and calculate accessibility of greenspace with best fit and make the accessibility of school as 0 due to removal of school in Jiaxing
 
@@ -1352,14 +1434,27 @@ for (i in seq(20, 30, by=5)) {
 
 weibo_predict_scenario3 <- weibo_clip
 
-weibo_predict_scenario3$newgreen_access_25 <- weibo_clip$newgreen_access_25
+weibo_predict_scenario3$greenspace_access_25 <- weibo_clip$newgreen_access_25
 weibo_predict_scenario3$school_access_25 <- 0
 
-weibo_predict_scenario3$positive_p <- predict(full2_model, weibo_predict_scenario3)
+weibo_predict_scenario3$positive_p <- predict(Timeslot8_model, weibo_predict_scenario3)
 
-ggplot(weibo_predict_scenario3) +
-  geom_sf(aes(color = weibo_predict_scenario3$positive_p), size = 0.1) +
+weibo_predict_scenario3_sf = weibo_predict_scenario3 %>%
+  mutate(geom = gsub(geometry,pattern="(\\))|(\\()|c",replacement = ""))%>%
+  tidyr::separate(geom,into=c("lat","lon"),sep=",")%>%
+  st_as_sf(.,coords=c("lat","lon"),crs= 'WGS84')
+
+ggplot(weibo_predict_scenario3_sf) +
+  geom_sf(aes(color = weibo_predict_scenario3_sf$positive_p), size = 0.1) +
   scale_color_viridis_c() +
   theme_map()
+```
+```{r}
+a = weibo_predict_sf$pred
+b = weibo_predict_scenario3_sf$positive_p
+c = weibo_clip$positive_p
+
+print (mean (b) -mean (a))
+print (mean (b) -mean (c))
 ```
   
