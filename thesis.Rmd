@@ -1501,7 +1501,7 @@ jx_map <- leaflet(weibo_clip_sf) %>%
 jx_map
 
 jx_ex <- jx_map%>%
-  addCircleMarkers(stroke = FALSE, color = ~JX_palette(positive_p), fillOpacity = 0.7, radius = 6,
+  addCircleMarkers(stroke = FALSE, color = ~JX_palette(positive_p), fillOpacity = 0.7, radius = 10,
   lng = weibo_clip$lon,
   lat = weibo_clip$lat,
   popup = content,
