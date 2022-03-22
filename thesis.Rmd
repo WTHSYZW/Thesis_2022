@@ -9,14 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
 ```{r}
 options(java.parameters = "-Xmx4G")
 ```
 
 ## Load libraries
 
-```{r setup, message=FALSE}
+```{r package, message=FALSE}
 library(r5r)
 library(tidyverse)
 library(sf)
@@ -224,7 +223,7 @@ grid_points <- st_centroid(grid)
 ```
 
 
-## run r5r
+## run r5r (install Java SE Development Kit 11 from Oracle)
 
 ```{r, message=FALSE}
 r5r_core <- setup_r5("jiaxing", verbose = FALSE)
@@ -890,6 +889,11 @@ summary(Timeslot8_model)
 However, the predicted result lack of data below 0.7.
 
 ```{r, message=FALSE, warning=FALSE, results='hide'}
+weibo_clip_sf = weibo_clip %>%
+  mutate(geom = gsub(geometry,pattern="(\\))|(\\()|c",replacement = ""))%>%
+  tidyr::separate(geom,into=c("lat","lon"),sep=",")%>%
+  st_as_sf(.,coords=c("lat","lon"),crs= 'WGS84')
+
 weibo_predict <- weibo_clip %>%
   add_predictions(model = Timeslot8_model) %>%
   select(positive_p, pred, geometry)
@@ -1287,6 +1291,12 @@ ggplot(weibo_clip) +
 ggplot(weibo_predict3) +
      geom_point(aes(x = restaurant_access_15, y= positive_pred))
 ```
+```{r}
+a = weibo_predict3_sf$positive_pred
+B = weibo_clip$positive_p
+
+print (mean (b) -mean (a))
+```
 
 ## scenario 2: double the number of school spreading out the city
 ```{r, message=FALSE, warning=FALSE, results='hide'}
@@ -1460,4 +1470,53 @@ c = weibo_clip$positive_p
 print (mean (b) -mean (a))
 print (mean (b) -mean (c))
 ```
-  
+
+## create interactive maps
+
+```{r}
+JX_palette <- colorNumeric(c("cornsilk", "darkgreen"), weibo_clip$positive_p)
+
+# ggplot(weibo_clip_sf) +
+#   geom_sf(aes(color = weibo_clip_sf$positive_p), size = 0.1) +
+#   scale_color_viridis_c() +
+#   theme_map()
+
+content <- paste(sep = "<br/>",
+  "Possible to be Positive: ", weibo_clip$positive_p,
+  "Proximity to Restaurant: ", weibo_clip$restaurant_access_15,
+  "Proximity to School: ", weibo_clip$school_access_25,
+  "Proximity to Hospital: ", weibo_clip$hospital_access_25,
+  "Proximity to Busstop: ", weibo_clip$busstop_access_70,
+  "Proximity to Greenspace: ", weibo_clip$greenspace_access_25,
+  "Proximity to Leisure: ", weibo_clip$leis_access_20,
+  "Proximity to Smallbusiness: ", weibo_clip$public_access_15,
+  "Proximity to Shopping: ", weibo_clip$shopping_access_25
+)
+
+
+jx_map <- leaflet(weibo_clip_sf) %>% 
+    setView(lng = 120.8090, lat = 30.68481, zoom = 13)%>%
+  addProviderTiles("Stamen.TonerLite")
+    
+jx_map
+
+jx_ex <- jx_map%>%
+  addCircleMarkers(stroke = FALSE, color = ~JX_palette(positive_p), fillOpacity = 0.7, radius = 6,
+  lng = weibo_clip$lon,
+  lat = weibo_clip$lat,
+  popup = content,
+  options = popupOptions(closeButton = FALSE))%>%
+  addCircleMarkers(data = restaurant, stroke = FALSE, color = "pink", fillOpacity = 0.5, radius = 3, group = "restaurant")%>%
+  addCircleMarkers(data = school, stroke = FALSE, color = "black", fillOpacity = 0.5, radius = 3, group = "school")%>%
+  addCircleMarkers(data = hospital, stroke = FALSE, color = "yellow", fillOpacity = 0.5, radius = 3, group = "hospital")%>%
+  addCircleMarkers(data = busstop, stroke = FALSE, color = "orange", fillOpacity = 0.5, radius = 3, group = "busstop")%>%
+  addCircleMarkers(data = greenspace_points, stroke = FALSE, color = "tin", fillOpacity = 0.5, radius = 3, group = "greenspace")%>%
+  addCircleMarkers(data = leis, stroke = FALSE, color = "red", fillOpacity = 0.5, radius = 3, group = "leis")%>%
+  addCircleMarkers(data = public, stroke = FALSE, color = "blue", fillOpacity = 0.5, radius = 3, group = "public")%>%
+  addCircleMarkers(data = shopping, stroke = FALSE, color = "purple", fillOpacity = 0.5, radius = 3, group = "shopping")%>%
+  addLayersControl(
+    overlayGroups = c("restaurant","school","hospital","busstop","greenspace","leis","public","shopping"),
+    options = layersControlOptions(collapsed = FALSE))
+
+saveWidget(jx_ex, file="jx_ex.html")
+```

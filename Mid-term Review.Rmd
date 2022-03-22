@@ -1,0 +1,84 @@
+---
+title: "Repreceive the urban environment by social media posts"
+author: "Yuanzhao WANG"
+date: '2022-03-22'
+output: rmdformats::readthedown
+---
+--A possible approach to quantify massive qualitative urban experience
+<br/>
+<br/>
+<br/>
+Supervisor: Carole Voulgaris
+<br/>
+<br/>
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Abstract
+
+Understanding and reflecting urban dwellers' happiness, and perception of urban space and life in urban planning has long been a challenge in China. The Chinese government has progressively brought attention to public participation and views, which had previously been ignored. However, government approaches for fostering public engagement remain scarce, while enthusiasm among individuals to express feelings and comments on government planning is lacking. In this context, my research project proposes measuring individual citizens' emotions and characteristics of the built environment,the proximity to various urban amenities, to explore the relationships between citizens' sentiments, urban space, and urban activities. This approach can be applied to gather public feelings in the urban planning process through platforms, as a way to quantify the quality of urban life. By establishing a quantitative urban model, the happiness of urban residents(the happiness of social media post) can become an indicator and standard as a way of bottom-up public participation, guiding planners' decisions to design a healthy, sustainable and people-centered city. 
+
+Your portfolio should demonstrate each of the following skills (not all of which are demonstrated in this example):
+
+* Displaying multiple vector layers on the same map
+* Calculating and displaying relationships among point and polygon layers based on distance
+* Aggregating point data to a layer of polygons
+* Calculating and displaying accessibility, based on travel time
+* Converting between raster layers and vector layers
+* Displaying raster data on a map
+* Georeferencing a raster image
+* Displaying data on an interactive map
+
+# Introduction
+Here are two maps of Boston. I might include some text here about this set of maps.
+
+# Literature Review
+Here are two maps of San Luis Obispo, California. I might include some text here as well.
+
+# Methodology
+Here are two maps of San Luis Obispo, California. I might include some text here as well.
+
+## Interactive Map
+This interactive map demonstrates the following skills: 
+
+* Displaying data on an interactive map
+
+<!-- [![](thumbnails/Boston_interactive.png)](https://c-voulgaris.github.io/portfolio_examples/fullsize/inter_black.html){target="_blank"} -->
+
+## Clockboard Map
+This map demonstrates the following skills:
+
+* Aggregating point data to a layer of polygons
+
+<!-- [![](thumbnails/clockboard.jpg)](https://c-voulgaris.github.io/portfolio_examples/fullsize/clockboard.pdf){target="_blank"} -->
+
+# Results
+Here are two maps of San Luis Obispo, California. I might include some text here as well.
+
+## Isochrones
+This map shows isochrones based on transit travel times to the nearest school. It demonstrates the following skills:
+
+* Displaying multiple vector layers on the same map
+* Calculating and displaying accessibility, based on travel time
+
+<!-- [![](thumbnails/SLO_isochrone.png)](https://c-voulgaris.github.io/portfolio_examples/fullsize/SLO_schools.pdf){target="_blank"} -->
+
+## Accessibility
+This map shows accessibility based on a distance-decay function of the walking time to the nearest transit stop. It demonstrates the following skills:
+
+* Displaying multiple vector layers on the same map
+* Calculating and displaying accessibility, based on travel time
+* Displaying raster data on a map
+
+<!-- [![](thumbnails/SLO_raster.png)](https://c-voulgaris.github.io/portfolio_examples/fullsize/SLO_transit.pdf){target="_blank"} -->
+
+# Discussion/Scenarios
+Here are two maps of San Luis Obispo, California. I might include some text here as well.
+
+## Isochrones
+This map shows isochrones based on transit travel times to the nearest school. It demonstrates the following skills:
+
+# Contribution
+
+# Limitation

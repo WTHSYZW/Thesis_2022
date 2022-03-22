@@ -1,0 +1,50 @@
+---
+title: "interactive"
+author: "yzw"
+date: '2022-03-22'
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+options(java.parameters = "-Xmx4G")
+```
+
+## Load libraries
+
+```{r package, message=FALSE}
+library(r5r)
+library(tidyverse)
+library(sf)
+library(irr)
+library(ggthemes)
+library(jtools)
+library(gridExtra)
+library(units)
+library(ggspatial)
+library(tibble)
+library(modelr)
+library(htmlwidgets)
+library(tidytransit)
+library(leaflet)
+```
+
+```{r}
+
+jx_map <- leaflet(weibo_clip) %>% 
+  setView(lng = 120.8090, lat = 30.68481, zoom = 11)%>%
+  addProviderTiles("Stamen.TonerLite")
+    
+jx_map
+
+jx_ex <- jx_map%>%
+  addCircleMarkers(stroke = FALSE, color = "black", fillOpacity = 1, radius = 3,
+  lng = weibo_clip$lon,
+  lat = weibo_clip$lat,
+  popup = weibo_clip$positive_p,
+  options = popupOptions(closeButton = FALSE))
+  
+jx_ex
+```
