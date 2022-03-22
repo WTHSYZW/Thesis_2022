@@ -1520,3 +1520,136 @@ jx_ex <- jx_map%>%
 
 saveWidget(jx_ex, file="jx_ex.html")
 ```
+
+## scenario 1 planned condition interactive map
+
+```{r}
+JX_palette1 <- colorNumeric(c("cornsilk", "darkgreen"), weibo_predict3_sf$positive_pred)
+
+# ggplot(weibo_clip_sf) +
+#   geom_sf(aes(color = weibo_clip_sf$positive_p), size = 0.1) +
+#   scale_color_viridis_c() +
+#   theme_map()
+
+content1 <- paste(sep = "<br/>",
+  "Possible to be Positive: ", weibo_predict3_sf$positive_pred,
+  "Proximity to Restaurant: ", weibo_predict3_sf$restaurant_access_15,
+  "Proximity to School: ", weibo_predict3_sf$school_access_25,
+  "Proximity to Hospital: ", weibo_predict3_sf$hospital_access_25,
+  "Proximity to Busstop: ", weibo_predict3_sf$busstop_access_70,
+  "Proximity to Greenspace: ", weibo_predict3_sf$greenspace_access_25,
+  "Proximity to Leisure: ", weibo_predict3_sf$leis_access_20,
+  "Proximity to Smallbusiness: ", weibo_predict3_sf$public_access_15,
+  "Proximity to Shopping: ", weibo_predict3_sf$shopping_access_25
+)
+
+
+jx_map_scenario1 <- leaflet(weibo_predict3_sf) %>% 
+    setView(lng = 120.8090, lat = 30.68481, zoom = 13)%>%
+  addProviderTiles("Stamen.TonerLite")
+    
+jx_map_scenario1
+
+jx_map_scenario1 <- jx_map_scenario1%>%
+  addCircleMarkers(data = weibo_predict3_sf, stroke = FALSE, color = ~JX_palette1(positive_pred), fillOpacity = 0.7, radius = 10,
+  popup = content1,
+  options = popupOptions(closeButton = FALSE))%>%
+  addCircleMarkers(data = predict_res_point, stroke = FALSE, color = "brown", fillOpacity = 0.5, radius = 3, group = "Planned restaurant")%>%
+  addCircleMarkers(data = restaurant, stroke = FALSE, color = "pink", fillOpacity = 0.5, radius = 3, group = "Original restaurant")%>%
+  addCircleMarkers(data = school, stroke = FALSE, color = "black", fillOpacity = 0.5, radius = 3, group = "school")%>%
+  addCircleMarkers(data = hospital, stroke = FALSE, color = "yellow", fillOpacity = 0.5, radius = 3, group = "hospital")%>%
+  addCircleMarkers(data = busstop, stroke = FALSE, color = "orange", fillOpacity = 0.5, radius = 3, group = "busstop")%>%
+  addCircleMarkers(data = greenspace_points, stroke = FALSE, color = "tin", fillOpacity = 0.5, radius = 3, group = "greenspace")%>%
+  addCircleMarkers(data = leis, stroke = FALSE, color = "red", fillOpacity = 0.5, radius = 3, group = "leis")%>%
+  addCircleMarkers(data = public, stroke = FALSE, color = "blue", fillOpacity = 0.5, radius = 3, group = "public")%>%
+  addCircleMarkers(data = shopping, stroke = FALSE, color = "purple", fillOpacity = 0.5, radius = 3, group = "shopping")%>%
+  addLayersControl(
+    overlayGroups = c("Planned restaurant","Original restaurant","school","hospital","busstop","greenspace","leis","public","shopping"),
+    options = layersControlOptions(collapsed = FALSE))
+
+saveWidget(jx_map_scenario1, file="jx_map_scenario1.html")
+```
+
+## scenario 2 school interactive map
+
+```{r}
+JX_palette2 <- colorNumeric(c("cornsilk", "darkgreen"), weibo_predict_scenario2_sf$positive_p)
+
+content2 <- paste(sep = "<br/>",
+  "Possible to be Positive: ", weibo_predict_scenario2_sf$positive_p,
+  "Proximity to Restaurant: ", weibo_predict_scenario2_sf$restaurant_access_15,
+  "Proximity to School: ", weibo_predict_scenario2_sf$school_access_25,
+  "Proximity to Hospital: ", weibo_predict_scenario2_sf$hospital_access_25,
+  "Proximity to Busstop: ", weibo_predict_scenario2_sf$busstop_access_70,
+  "Proximity to Greenspace: ", weibo_predict_scenario2_sf$greenspace_access_25,
+  "Proximity to Leisure: ", weibo_predict_scenario2_sf$leis_access_20,
+  "Proximity to Smallbusiness: ", weibo_predict_scenario2_sf$public_access_15,
+  "Proximity to Shopping: ", weibo_predict_scenario2_sf$shopping_access_25
+)
+
+
+jx_map_scenario2 <- leaflet(weibo_predict_scenario2_sf) %>% 
+    setView(lng = 120.8090, lat = 30.68481, zoom = 13)%>%
+  addProviderTiles("Stamen.TonerLite")
+
+jx_map_scenario2 <- jx_map_scenario2%>%
+  addCircleMarkers(data = weibo_predict_scenario2_sf, stroke = FALSE, color = ~JX_palette2(positive_p), fillOpacity = 0.7, radius = 10,
+  popup = content2,
+  options = popupOptions(closeButton = FALSE))%>%
+  addCircleMarkers(data = restaurant, stroke = FALSE, color = "pink", fillOpacity = 0.5, radius = 3, group = "restaurant")%>%
+  addCircleMarkers(data = doubleschool_point, stroke = FALSE, color = "brown", fillOpacity = 0.5, radius = 3, group = "Double school")%>%
+  addCircleMarkers(data = school, stroke = FALSE, color = "grey", fillOpacity = 0.5, radius = 3, group = "Original school")%>%
+  addCircleMarkers(data = hospital, stroke = FALSE, color = "yellow", fillOpacity = 0.5, radius = 3, group = "hospital")%>%
+  addCircleMarkers(data = busstop, stroke = FALSE, color = "orange", fillOpacity = 0.5, radius = 3, group = "busstop")%>%
+  addCircleMarkers(data = greenspace_points, stroke = FALSE, color = "tin", fillOpacity = 0.5, radius = 3, group = "greenspace")%>%
+  addCircleMarkers(data = leis, stroke = FALSE, color = "red", fillOpacity = 0.5, radius = 3, group = "leis")%>%
+  addCircleMarkers(data = public, stroke = FALSE, color = "blue", fillOpacity = 0.5, radius = 3, group = "public")%>%
+  addCircleMarkers(data = shopping, stroke = FALSE, color = "purple", fillOpacity = 0.5, radius = 3, group = "shopping")%>%
+  addLayersControl(
+    overlayGroups = c("restaurant","Double school","Original school","hospital","busstop","greenspace","leis","public","shopping"),
+    options = layersControlOptions(collapsed = FALSE))
+
+saveWidget(jx_map_scenario2, file="jx_map_scenario2.html")
+```
+
+## scenario 3 school into greenspace interactive map
+
+```{r}
+JX_palette3 <- colorNumeric(c("cornsilk", "darkgreen"), weibo_predict_scenario3_sf$positive_p)
+
+content3 <- paste(sep = "<br/>",
+  "Possible to be Positive: ", weibo_predict_scenario3_sf$positive_p,
+  "Proximity to Restaurant: ", weibo_predict_scenario3_sf$restaurant_access_15,
+  "Proximity to School: ", weibo_predict_scenario3_sf$school_access_25,
+  "Proximity to Hospital: ", weibo_predict_scenario3_sf$hospital_access_25,
+  "Proximity to Busstop: ", weibo_predict_scenario3_sf$busstop_access_70,
+  "Proximity to Greenspace: ", weibo_predict_scenario3_sf$greenspace_access_25,
+  "Proximity to Leisure: ", weibo_predict_scenario3_sf$leis_access_20,
+  "Proximity to Smallbusiness: ", weibo_predict_scenario3_sf$public_access_15,
+  "Proximity to Shopping: ", weibo_predict_scenario3_sf$shopping_access_25
+)
+
+
+jx_map_scenario3 <- leaflet(weibo_predict_scenario3_sf) %>% 
+    setView(lng = 120.8090, lat = 30.68481, zoom = 13)%>%
+  addProviderTiles("Stamen.TonerLite")
+
+jx_map_scenario3 <- jx_map_scenario3%>%
+  addCircleMarkers(data = weibo_predict_scenario3_sf, stroke = FALSE, color = ~JX_palette3(positive_p), fillOpacity = 0.7, radius = 10,
+  popup = content3,
+  options = popupOptions(closeButton = FALSE))%>%
+  addCircleMarkers(data = restaurant, stroke = FALSE, color = "pink", fillOpacity = 0.5, radius = 3, group = "restaurant")%>%
+  addCircleMarkers(data = school, stroke = FALSE, color = "grey", fillOpacity = 0.5, radius = 3, group = "Original school")%>%
+  addCircleMarkers(data = hospital, stroke = FALSE, color = "yellow", fillOpacity = 0.5, radius = 3, group = "hospital")%>%
+  addCircleMarkers(data = busstop, stroke = FALSE, color = "orange", fillOpacity = 0.5, radius = 3, group = "busstop")%>%
+  addCircleMarkers(data = newgreen_point, stroke = FALSE, color = "brown", fillOpacity = 0.5, radius = 3, group = "New greenspace")%>%
+  addCircleMarkers(data = greenspace_points, stroke = FALSE, color = "tin", fillOpacity = 0.5, radius = 3, group = "Original greenspace")%>%
+  addCircleMarkers(data = leis, stroke = FALSE, color = "red", fillOpacity = 0.5, radius = 3, group = "leis")%>%
+  addCircleMarkers(data = public, stroke = FALSE, color = "blue", fillOpacity = 0.5, radius = 3, group = "public")%>%
+  addCircleMarkers(data = shopping, stroke = FALSE, color = "purple", fillOpacity = 0.5, radius = 3, group = "shopping")%>%
+  addLayersControl(
+    overlayGroups = c("restaurant","Original school","hospital","busstop","New greenspace","Original greenspace","leis","public","shopping"),
+    options = layersControlOptions(collapsed = FALSE))
+
+saveWidget(jx_map_scenario3, file="jx_map_scenario3.html")
+```
