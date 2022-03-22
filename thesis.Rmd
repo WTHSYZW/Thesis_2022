@@ -28,6 +28,9 @@ library(units)
 library(ggspatial)
 library(tibble)
 library(modelr)
+library(htmlwidgets)
+library(tidytransit)
+library(leaflet)
 ```
 
 
