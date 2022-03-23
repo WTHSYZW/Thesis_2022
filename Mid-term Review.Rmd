@@ -7,6 +7,7 @@ output: rmdformats::readthedown
 --A possible approach to quantify massive qualitative urban experience
 <br/>
 <br/>
+Yuanzhao WANG
 <br/>
 Supervisor: Carole Voulgaris
 <br/>
