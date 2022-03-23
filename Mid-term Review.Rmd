@@ -54,7 +54,7 @@ Recently, the availability of mobile information, big urban data and machine lea
 
 The measurement of the built environment is constructed by a variety body of indices to address different urban issues. Cervero and Kockelman's developed initial "three Ds" (density, design, and diversity) in 1997 to evaluate the existing urban built environment. Edwing et al. expanded on this concept by adding two Ds (destination accessibility and transportation distance) (Ewing & Cervero, 2001; Ewing et al., 2009). More Ds were added afterwards to reflect the changing built environment, such as Demand management and Demographics (Ewing & Cervero, 2010). Scholars have modified the list of variables based on these quantitative frameworks to comprehensively examine the built environment while addressing various urban issues and topics. Some research used relative entropy to discern compactness from sprawl in the built environment (Tsai, 2005). Others used a multi-metric urban intensity index at a metropolitan scale, which included land use, infrastructure, and landscape variables in addition to density and compactness (Tate et al., 2005). More recent studies, especially in the Chinese context, Rowe et al. (2014) proposed the measurement of urban intensity from variables of compactness, density, diversity, and connectivity, aiming at revealing the resource distribution, transportation efficiency, and social integration in both cities and optimize the urban performance (Rowe et al., 2014). Later, Guan and Rowe (2016) evaluated the spatial structure of small towns in Zhejiang Province using similar urban intensity characteristics, such as density, compactness, diversity, and accessibility. 
 
-# Research proposal
+# Research framework
 
 The research aims to apply sentiment analysis to quantify qualitative public feelings from text-based information as a representation of individual real-time happiness, and develop a multivariate model to explore the relationship between the individual feelings from social media and the built environment in China. Based on the model, this research compare existing condition and the planned condition of Jiaxing city in China, and test different planning scenarios to explore the possible changes of individual feeling when using social media platform. 
 
@@ -80,12 +80,10 @@ For this research, social media data (Weibo posts) was collected from Sina Weibo
 To study individual happiness and its response to different built environments, this research collects within one year as a primary resource via the API of Sina Weibo. Individual emotional preference (positive probability of individual post ) would be defined as individual real-time happiness toward the built environment. The Baidu AI platform has allowed researchers to analyze public sentiment via its well-developed emotion dictionaries and its trained machine learning model for decades in the Chinese context. Thus, the sentiment analysis of individual posts will be conducted by accessing a machine learning model from the Baidu AI platform. The return value of individual post contains three parts: sentiment category, positive probability and negative probability. In this research, the positive probability is used to represent the possible level of happiness of individual post. 
 
 [![](maps/sentiment.png)](https://WTHSYZW.github.io/Thesis_2022/maps/sentiment.pdf){target="_blank"}
-<br/>
-<br/>
-[![](maps/jx_ex.png)](https://WTHSYZW.github.io/Thesis_2022/jx_ex.html){target="_blank"}
-(Interactive Map)
-
-
+<!-- <br/> -->
+<!-- <br/> -->
+<!-- [![](maps/jx_ex.png)](https://WTHSYZW.github.io/Thesis_2022/jx_ex.html){target="_blank"} -->
+<!-- (Interactive Map) -->
 
 ## Proximity to urban amenities 
 
@@ -109,7 +107,7 @@ By applying the established regression model, the positive probability of indivi
 
 # Results
 
-## Regression analysis on the relationship between individual sentiment and the prolixity to urban amenities
+## Regression analysis on the relationship between individual sentiment and the proximity to urban amenities
 The regression model shows that proximity to restaurant, busstop, green space, leisure space are positively related to individual sentiment on weibo post; while the proximity to school and small business are negatively related to individual sentiment. In addition, adding the time, weather and workday variables, I found that the Time of the weibo post is statistic significantly related to individual sentiment, while weather and workday variables are not related to individual sentiment.
 
 [![](maps/regression1.png)](https://WTHSYZW.github.io/Thesis_2022/maps/regression1.png){target="_blank"}
@@ -117,6 +115,10 @@ The regression model shows that proximity to restaurant, busstop, green space, l
 The threshold tests indicate the best fits of walking distance to different amenities for the regression models: the proximity to restaurant within 15 mins, the proximity to school within 25 mins, the proximity to green space within 25 mins, the proximity to hospital within 25 mins, the proximity to bus stops within 70 mins, the proximity to leisure space within 20 mins, the proximity to small business within 15 mins, the proximity to shopping center within 25 mins.
 
 [![](maps/bestfit.png)](https://WTHSYZW.github.io/Thesis_2022/maps/bestfit.png){target="_blank"}
+<br/>
+<br/>
+[![](maps/jx_ex.png)](https://WTHSYZW.github.io/Thesis_2022/jx_ex.html){target="_blank"}
+(Interactive Map)
 
 ## Scenario1
 The planning scenario 1 of Jiaxing is based on the offical planning document issued by local government. Base on the changes of residential and business zoning in Jiaxing, the simulation of new restaurant locations are generated by assuming the same density of restaurant in these zoning. After comparing of the averages of public sentiment between the planned condition and existing condition, it was surprising to find that the simulated future sentiment was less than the existing sentiment result at -0.05382951. It suggests that the future Jiaxing might not improve residents' happiness in social media.
