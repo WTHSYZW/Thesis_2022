@@ -83,7 +83,8 @@ To study individual happiness and its response to different built environments, 
 <br/>
 <br/>
 [![](maps/jx_ex.png)](https://WTHSYZW.github.io/Thesis_2022/jx_ex.html){target="_blank"}
-
+(Interactive Map)
+<br/>
 ## Proximity to urban amenities 
 
 In this research, proximity is defined by the accessibility of urban activities and amenities by walking and by characteristics of pedestrian networks. The amenities dataset is collected as points of interest (POIs) from Gaodu Map in China, which is one of the most widely used digital navigation systems in China. The urban networks are extracted from the OpenStreet Map (OSM). Accessibility will be calculated by the R5 package embedded in the R studio.
@@ -122,17 +123,20 @@ The planning scenario 1 of Jiaxing is based on the offical planning document iss
 <br/>
 <br/>
 [![](maps/jx_map_scenario1.png)](https://WTHSYZW.github.io/Thesis_2022/jx_map_scenario1.html){target="_blank"}
-
+(Interactive Map)
+<br/>
 ## Scenario2
 Scenario 2 intends to simulate an educational Jiaxing city by doubling the number of school spreading out the city. The original schools remind the same locations, while randomly generating same amount of schools spreading out the city. After comparing of the averages of public sentiment between the scenario 2 and existing condition, the simulated sentiment was less than the existing sentiment result at -0.0002921917 due to the negative relationship between school and public sentiment. This finding remains questionable; it is understandable that people might not be happly to stay at school, however, it should play an important role in long-term wellbeing.
 
 [![](maps/jx_map_scenario2.png)](https://WTHSYZW.github.io/Thesis_2022/jx_map_scenario2.html){target="_blank"}
-
-## Scenario13
+(Interactive Map)
+<br/>
+## Scenario3
 Scenario 3 intends to simulate an green Jiaxing city by turning school into green space. The planning strategy based on the negative correlation between school and public sentiment, while a positive correlation between green space and public sentiment, assuming a happier Jiaxing.The finding supports such assumption: the simulated average sentiment was more than the existing sentiment result at 0.005517993.
 
 [![](maps/jx_map_scenario3.png)](https://WTHSYZW.github.io/Thesis_2022/jx_map_scenario3.html){target="_blank"}
-
+(Interactive Map)
+<br/>
 # Limitation
 
 Although the relationships between public sentiment and the proximity to amenities are indicated by a set of regression models, there are no proof to suggest any causation. In addition, in this research, author assumed the public sentiment from social media could represent individual real-time happiness, which remains uncertain awaiting a further examination. What is more, due to the limited urban variables, the confidence level of regression model is relatively low at 2%, which could be used to study the changes of individual sentiment but is incapable to simulate a convincing results. Last but not least, the weibo post could only represent the users who mostly age from 16-40, which are around 30% of the total population who have access to mobile internet.
