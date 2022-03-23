@@ -64,7 +64,7 @@ The research aims to apply sentiment analysis to quantify qualitative public fee
 
 ## Site
 
-The study area may be Jiaxing city in China's Zhejiang province. Jiaxing is a significant city that is part of the Yangtze River Delta city cluster and the Shanghai metropolitan area. It is located in close proximity to the two major cities of Shanghai and Hangzhou. It is a small tourist city with two counties, 44 towns, and 809 administrative villages that has been designated as a national key program. 
+The study area is Jiaxing city in China's Zhejiang province. Jiaxing is a significant city that is part of the Yangtze River Delta city cluster and the Shanghai metropolitan area. It is located in close proximity to the two major cities of Shanghai and Hangzhou. It is a small tourist city with two counties, 44 towns, and 809 administrative villages that has been designated as a national key program. 
 
 [![](maps/jiaxing.png)](https://WTHSYZW.github.io/Thesis_2022/maps/jiaxing.png){target="_blank"}
 
