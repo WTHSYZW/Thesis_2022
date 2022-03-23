@@ -57,51 +57,91 @@ The measurement of the built environment is constructed by a variety body of ind
 
 The research aims to apply sentiment analysis to quantify qualitative public feelings from text-based information as a representation of individual real-time happiness, and develop a multivariate model to explore the relationship between the individual feelings from social media and the built environment in China. Based on the model, this research compare existing condition and the planned condition of Jiaxing city in China, and test different planning scenarios to explore the possible changes of individual feeling when using social media platform. 
 
-[![](maps/workflow.png)](https://WTHSYZW.github.io/Thesis_2022/maps/workflow.pdf){target="_blank"}
+[![](maps/workflow.png)](https://WTHSYZW.github.io/Thesis_2022/maps/workflow.png){target="_blank"}
 
 # Methodology
-Here are two maps of San Luis Obispo, California. I might include some text here as well.
 
-## Interactive Map
-This interactive map demonstrates the following skills: 
+## Site
 
-* Displaying data on an interactive map
+The study area may be Jiaxing city in China's Zhejiang province. Jiaxing is a significant city that is part of
+the Yangtze River Delta city cluster and the Shanghai metropolitan area. It is located in close proximity
+to the two major cities of Shanghai and Hangzhou. It is a small tourist city with two counties, 44 towns,
+and 809 administrative villages that has been designated as a national key program. 
 
-<!-- [![](thumbnails/Boston_interactive.png)](https://c-voulgaris.github.io/portfolio_examples/fullsize/inter_black.html){target="_blank"} -->
+[![](maps/jiaxing.png)](https://WTHSYZW.github.io/Thesis_2022/maps/jiaxing.png){target="_blank"}
 
-## Clockboard Map
-This map demonstrates the following skills:
 
-* Aggregating point data to a layer of polygons
+## Data collection and preprocess
 
-<!-- [![](thumbnails/clockboard.jpg)](https://c-voulgaris.github.io/portfolio_examples/fullsize/clockboard.pdf){target="_blank"} -->
+
+## Sentiment analysis of social media post
+
+To study individual happiness and its response to different built environments, this research collects Weibo posts within one year as a primary resource via the API of Sina Weibo. Individual emotional preference (positive probability of individual post ) would be defined as individual real-time happiness toward the built environment. The Baidu AI platform has allowed researchers to analyze public sentiment via its well-developed emotion dictionaries and its trained machine learning model for decades in the Chinese context. Thus, the sentiment analysis of individual posts will be conducted by accessing a machine learning model from the Baidu AI platform. The return value of individual post contains three parts: sentiment category, positive probability and negative probability. In this research, the positive probability is used to represent the possible level of happiness of individual post. 
+
+## Proximity to urban amenities 
+
+In this research, proximity is defined by the accessibility of urban activities and amenities by walking and by characteristics of pedestrian networks. The amenities dataset is collected as points of interest (POIs) from Gaodu Map in China, which is one of the most widely used digital navigation systems in China. The urban networks are extracted from the OpenStreet Map (OSM). Accessibility will be calculated by the R5 package embedded in the R studio.
+
+## Correlation between individual sentiment and the built environment
+
+To understand how the urban environment would affect individual sentiment from social media, a series of regression models between sentiment results and the proximity to urban amenities were conducted. To further improve the interpretation of regression model, the regression analysis between sentiment result and the different proximity based on various walking distance were applied. In addition, adding the time, weather and workday variables helps improve the model and further understand which variable might affect individual sentiment other than the built environment.
+
+## Prediction of sentiment changes based on the regression model
+
+By applying the established regression model, the positive probability of individual post can be simulated by providing a set of proximity to urban amenities which can be calculated by the geo-locations of them. As such, this research provides three different planning for scenarios: the official planning documents, educational city (double the number of school) and tourism city (replace the school with greenspace). Each scenario associates with individual set of urban amenities, simulating different individual sentiment map of Jiaxing. By comparing the scenarios and the exiting condition, we could better understand how the built environment may affect individual feelings in social media, and more importantly, design a better city of citizen. 
 
 # Results
+
+## Regression analysis on the relationship between individual sentiment and the prolixity to urban amenities
+The regression model shows that proximity to restaurant, busstop, green space, leisure space are positively related to individual sentiment on weibo post; while the proximity to school and small business are negatively related to individual sentiment. In addition, adding the time, weather and workday variables, I found that the Time of the weibo post is statistic significantly related to individual sentiment, while weather and workday variables are not related to individual sentiment.
+
+The threshold tests indicate the best fits of walking distance to different amenities for the regression models: the proximity to restaurant within 15 mins, the proximity to school within 25 mins, the proximity to green space within 25 mins, the proximity to hospital within 25 mins, the proximity to bus stops within 70 mins, the proximity to leisure space within 20 mins, the proximity to small business within 15 mins, the proximity to shopping center within 25 mins.
+
+## Scenario1
 Here are two maps of San Luis Obispo, California. I might include some text here as well.
 
-## Isochrones
-This map shows isochrones based on transit travel times to the nearest school. It demonstrates the following skills:
-
-* Displaying multiple vector layers on the same map
-* Calculating and displaying accessibility, based on travel time
-
-<!-- [![](thumbnails/SLO_isochrone.png)](https://c-voulgaris.github.io/portfolio_examples/fullsize/SLO_schools.pdf){target="_blank"} -->
-
-## Accessibility
-This map shows accessibility based on a distance-decay function of the walking time to the nearest transit stop. It demonstrates the following skills:
-
-* Displaying multiple vector layers on the same map
-* Calculating and displaying accessibility, based on travel time
-* Displaying raster data on a map
-
-<!-- [![](thumbnails/SLO_raster.png)](https://c-voulgaris.github.io/portfolio_examples/fullsize/SLO_transit.pdf){target="_blank"} -->
-
-# Discussion/Scenarios
+## Scenario2
 Here are two maps of San Luis Obispo, California. I might include some text here as well.
 
-## Isochrones
-This map shows isochrones based on transit travel times to the nearest school. It demonstrates the following skills:
+## Scenario13
+Here are two maps of San Luis Obispo, California. I might include some text here as well.
+
+# Limitation
 
 # Contribution
 
-# Limitation
+# Reference
+1)	Cervero, R., & Kockelman, K. (1997). Travel demand and the 3Ds: Density, diversity, and design. Transportation research part D: Transport and environment, 2(3), 199-219.
+2)	Conway, J. R., Lex, A., & Gehlenborg, N. (2017). UpSetR: an R package for the visualization of intersecting sets and their properties. Bioinformatics.
+3)	Diener, E., Suh, E. M., Lucas, R. E., & Smith, H. L. (1999). Subjective well-being: Three decades of progress. Psychological bulletin, 125(2), 276.
+4)	Ewing, R., & Cervero, R. (2001). Travel and the built environment: a synthesis. Transportation research record, 1780(1), 87-114.
+5)	Ewing, R., & Cervero, R. (2010). Travel and the built environment: A meta-analysis. Journal of the American planning association, 76(3), 265-294.
+6)	Ewing, R., Greenwald, M. J., Zhang, M., Walters, J., Feldman, M., Cervero, R., & Thomas, J. (2009). Measuring the impact of urban form and transit access on mixed use site trip generation rates—Portland pilot study. US Environmental Protection Agency, Washington, DC.
+7)	Florida, R., Mellander, C., & Rentfrow, P. J. (2013). The happiness of cities. Regional studies, 47(4), 613-627.
+8)	Guan, CH. & Rowe, P.G. (2016). The concept of urban intensity and China's townization policy: Cases from Zhejiang Province. Cities. 55. 22-41.
+9)	Gim, T. H. T. (2021). Comparing Happiness Determinants for Urban Residents A Partial Least Squares Regression Model. International Review for Spatial Planning and Sustainable Development, 9(2), 24-40. 
+10)	Hogertz, C. (2010). Emotions of the urban pedestrian: sensory mapping. Pedestrians’ quality needs, 31, 31-52.
+11)	Lawless, N. M., & Lucas, R. E. (2011). Predictors of regional well-being: A county level analysis. Social Indicators Research, 101(3), 341-357.
+12)	Leyden, K. M., Goldberg, A., & Michelbach, P. (2011). Understanding the pursuit of happiness in ten major cities. Urban affairs review, 47(6), 861-888.
+13)	Li, SJ., Ma, S., Zhang M., Long Y. (2018). Muiti-scale Evaluation of Urban Green Space Based on Muti-source New Data：Exploration of Main Cities in China. Landscape Architecture.
+14)	Ma, Y., Ling, C., & Wu, J. (2020). Exploring the Spatial Distribution Characteristics of Emotions of Weibo Users in Wuhan Waterfront Based on Gender Differences Using Social Media Texts. ISPRS International Journal of Geo-Information, 9(8), 465. 
+15)	Mouratidis, K. (2018). Rethinking how built environments influence subjective well-being: A new conceptual framework. Journal of Urbanism: International Research on Placemaking and Urban Sustainability, 11(1), 24-40.
+16)	OECD Better Life Index. How’s Life? 2020 Measuring Well-Being; OECD Publishing: Paris, France, 202Jiang, GH., Ma, WQ., Wang, DQ., Zhou, DY., Zhang, RJ., & Zhou, T. (2017). Identifying the internal structure evolution of urban built-up land sprawl (UBLS) from a composite structure perspective: A case study of the Beijing metropolitan area, China. Land Use Policy, 62, 258-267.
+17)	Orii, L., Alonso, L., & Larson, K. (2020). Methodology for Establishing Well-Being Urban Indicators at the District Level to be Used on the CityScope Platform. Sustainability, 12(22), 9458.
+18)	Plunz, R. A., Zhou, Y., Vintimilla, M. I. C., Mckeown, K., Yu, T., Uguccioni, L., & Sutto, M. P. (2019). Twitter sentiment in New York City parks as measure of well-being. Landscape and urban planning, 189, 235-246.
+19)	Rowe, P. G., & Kan, H. Y. (2014). Urban Intensities: Contemporary Housing Types and Territories. Birkhäuser.
+20)	Rath, T., Harter, J. K., & Harter, J. (2010). Wellbeing: The five essential elements. Simon and Schuster.
+21)	Song, Y., & Gerrit-Jan, K. (2004). Measuring urban form. American Planning Association. Journal of the American Planning Association, 70, 210–225.
+22)	Sun, S. (2017). On Urban Planning System in China, URP 1, 16-25.
+23)	Shen, Y., & Karimi, K. (2016). Urban function connectivity: Characterisation of functional urban streets with social media check-in data. Cities, 55, 9-21.
+24)	Tsai, Y. (2005). Quantifying urban form: Compactness versus “sprawl”. Urban Studies, 42(1), 141–161.
+25)	Tate, C., Cuffney, T., McMahon, G., Giddings, E., Coles, J., Zappia, H. (2005). Use of an urban    intensity index to assess urban effects on streams in three contrasting environmental settings. In Effects of urbanization on stream ecosystems. Symposium 47, 291–315. American Fisheries Society, Bethesda, Maryland, USA.
+26)	Teller, C. & Reutterer, T. (2008). The Evolving Concept of Retail Attractiveness: What Makes Retail Agglomerations Attractive When Customers Shop at Them? Journal of Retailing and Consumer Services, 15(3), 127-143.
+27)	Wu, C., Ye, X., Ren, F., & Du, Q. (2018). Check-in behaviour and spatio-temporal vibrancy: An exploratory analysis in Shenzhen, China. Cities, 77, 104-116.
+28)	Wu, Z., & Ye, Z. (2016). Research on urban spatial structure based on Baidu heat map: A case study on the central city of Shanghai. City Planning Review, 40(4), 33–40.
+29)	Yin, C., & Shao, C. (2021). Revisiting commuting, built environment and happiness: New evidence on a nonlinear relationship. Transportation Research Part D: Transport and Environment, 100, 103043.
+30)	Yao, QA., Guan, TW., Shi, J. (2019). Coupling Development of Rail Transit and Commercial Facilities Based on Public Comment Data：Taking Tianjin as an Example. Journal of Tianjin Chengjian University.
+31)	Zhang, D. G. (2019). The theoretical and practical research on Small Towns with Chinese Characteristics. People Press. 
+32)	Zhang, P., Yang, D., Qin, M., & Jing, W. (2020). Spatial heterogeneity analysis and driving forces exploring of built-up land development intensity in Chinese prefecture-level cities and implications for future Urban Land intensive use. Land Use Policy, 99, 104958.
+33)	Zhen, F., Tang, J., & Chen, Y. (2018). Spatial distribution characteristics of residents’ emotions based on Sina Weibo big data: A case study of Nanjing. In Big data support of urban planning and management (pp. 43-62). Springer, Cham.
+
