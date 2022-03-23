@@ -87,7 +87,7 @@ To study individual happiness and its response to different built environments, 
 
 ## Proximity to urban amenities 
 
-In this research, proximity is defined by the accessibility of urban activities and amenities by walking and by characteristics of pedestrian networks. The amenities dataset is collected as points of interest (POIs) from Gaodu Map in China, which is one of the most widely used digital navigation systems in China. The urban networks are extracted from the OpenStreet Map (OSM). Accessibility will be calculated by the R5 package embedded in the R studio.
+In this research, proximity is defined by the accessibility of urban activities and amenities by walking and by characteristics of pedestrian networks. The amenities dataset is collected as points of interest (POIs) from Gaode Map in China, which is one of the most widely used digital navigation systems in China. The urban networks are extracted from the OpenStreet Map (OSM). Accessibility will be calculated by the R5 package embedded in the R studio.
 
 
 [![](maps/POI.png)](https://WTHSYZW.github.io/Thesis_2022/maps/POI.jpg){target="_blank"}
