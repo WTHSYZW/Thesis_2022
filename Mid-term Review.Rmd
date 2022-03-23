@@ -37,10 +37,27 @@ The new urban policies in China shifted the emphasis of urbanization away from e
 
 With the introduction of social media data and machine learning technologies, new methods for studying urban spatial patterns and residents' life have emerged. In 2017, there were more than 753 million people have access to mobile internet, while 68% of them frequently use social media platform. The AI-based technology such as sentiment analysis could be used to extract individual feelings from text-based information, as a form of public perception of urban space, contributing to bottom-up engagement and people-oriented urban planning.
 
-[![](thumbnails/Boston_interactive.png)](https://c-voulgaris.github.io/portfolio_examples/fullsize/inter_black.html){target="_blank"}
+[![](maps/township.png)](https://WTHSYZW.github.io/Thesis_2022/maps/township.png){target="_blank"}
 
 # Literature Review
-Here are two maps of San Luis Obispo, California. I might include some text here as well.
+
+## Wellbeing as a Measure of Health and the Built environment
+
+Scientists have historically measured well-being using objective indicators (e.g., GDP, health, employment, literacy, poverty) and increasing measured subjective well-being that influences individual life. Modern measures of well-being that account for cognitive evaluations (i.e., evaluative well-being) and reactions to experiences (i.e., experienced well-being) have therefore become the “currency of a life that matters” (Rath et al., 2010). As the concept of well-being develops, the indices including physical health, mental health, air quality and more are increasingly used, implying a strong relationship between health and residents’ well-being (Diener et al., 1999; Lawless & Lucas, 2010). Some studies found that population density may affect well-being on the city level (Florida et al., 2013). Mouratidis (2018) argues that compact urban form with better public transport, accessibility, the mix of land uses, and density positively influences neighborhood well-being. Social and human capital, considered significant drivers of urban well-being, can be affected by safety, educational opportunities, and access to arts and culture (Leyden et al., 2011; Florida et al., 2013). Other aspects of urban infrastructure (such as roads and transportation) impact commute time and connectedness, both of which are related to happiness (Yin et al., 2021; Gim, 2021).
+
+## Big data, Social media and Sentiment analysis 
+
+Recently, the availability of mobile information, big urban data and machine learning technology has significantly enhanced urban research methods, particularly in terms of the dynamic spatial and temporal relationships between human behaviour and urban research (Wu, Ye, Ren, & Du, 2018). The invitation of various big data could change China's top-down urban planning process by bringing individual information into the discussion of urban space and quality. With the rise of social media and machine learning, sentiment analysis became a field of study that mines public opinions, measures subjective happiness and relates them to different research areas. The previous studies applied Twitter, Sina Weibo data (Chinese Twitter) and Dazhong dianping (Chinese Yelp) to examine the relationship between urban form, spatial quality, and public comments, such as the relationship between quality of urban parks and travellers' behaviour and words; urban transportation and commercial facilities (Li et al., 2018; Ta et al., 2020; Yao et al., 2019; Plunz et al., 2019). Some research further studied the difference and distribution of residents' emotions regarding gender, time-dimension and different urban facilities (Ma et al., 2020; Zhen et al., 2018). 
+
+## Quantitative urban measure of the built environment
+
+The measurement of the built environment is constructed by a variety body of indices to address different urban issues. Cervero and Kockelman's developed initial "three Ds" (density, design, and diversity) in 1997 to evaluate the existing urban built environment. Edwing et al. expanded on this concept by adding two Ds (destination accessibility and transportation distance) (Ewing & Cervero, 2001; Ewing et al., 2009). More Ds were added afterwards to reflect the changing built environment, such as Demand management and Demographics (Ewing & Cervero, 2010). Scholars have modified the list of variables based on these quantitative frameworks to comprehensively examine the built environment while addressing various urban issues and topics. Some research used relative entropy to discern compactness from sprawl in the built environment (Tsai, 2005). Others used a multi-metric urban intensity index at a metropolitan scale, which included land use, infrastructure, and landscape variables in addition to density and compactness (Tate et al., 2005). More recent studies, especially in the Chinese context, Rowe et al. (2014) proposed the measurement of urban intensity from variables of compactness, density, diversity, and connectivity, aiming at revealing the resource distribution, transportation efficiency, and social integration in both cities and optimize the urban performance (Rowe et al., 2014). Later, Guan and Rowe (2016) evaluated the spatial structure of small towns in Zhejiang Province using similar urban intensity characteristics, such as density, compactness, diversity, and accessibility. 
+
+# Research proposal
+
+The research aims to apply sentiment analysis to quantify qualitative public feelings from text-based information as a representation of individual real-time happiness, and develop a multivariate model to explore the relationship between the individual feelings from social media and the built environment in China. Based on the model, this research compare existing condition and the planned condition of Jiaxing city in China, and test different planning scenarios to explore the possible changes of individual feeling when using social media platform. 
+
+[![](maps/workflow.png)](https://WTHSYZW.github.io/Thesis_2022/maps/workflow.pdf){target="_blank"}
 
 # Methodology
 Here are two maps of San Luis Obispo, California. I might include some text here as well.
@@ -50,7 +67,7 @@ This interactive map demonstrates the following skills:
 
 * Displaying data on an interactive map
 
-[![](thumbnails/Boston_interactive.png)](https://c-voulgaris.github.io/portfolio_examples/fullsize/inter_black.html){target="_blank"}
+<!-- [![](thumbnails/Boston_interactive.png)](https://c-voulgaris.github.io/portfolio_examples/fullsize/inter_black.html){target="_blank"} -->
 
 ## Clockboard Map
 This map demonstrates the following skills:
