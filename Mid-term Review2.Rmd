@@ -159,7 +159,8 @@ Scenario 3 intends to simulate an green Jiaxing city by turning school into gree
 (Interactive Map)
 
 # Platform participation
-From the previous planning scenarios, it seems meaningless to use social media data to improve urban planning due to the evident errors made. Does this suggest that utilizing social media platforms for bottom-up participation is ineffective?
+From the previous planning scenarios, it seems meaningless to use social media data to improve urban planning due to the evident errors made. Does this suggest that utilizing social media platforms for bottom-up participation is ineffective?  
+
 ## Strengths and weaknesses of existing social media data
 One of the strengths of social media data is its large coverage of population in China. It demonstrates a prospective method for widespread public participation that is distinct from other traditional methods that are time-consuming and involve a small number of representatives. The usage of social media platforms is already embedded in people's daily lives, which facilitates public participation, particularly for those in China who merely contributed to urban planning process before.  
 [![](maps/internet_user.png)](https://www.statista.com/statistics/277586/number-of-social-network-users-in-china/#professional){target="_blank"}  
