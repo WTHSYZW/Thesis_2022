@@ -4,7 +4,7 @@ author: "Yuanzhao WANG"
 date: '2022-03-22'
 output: rmdformats::readthedown
 ---
---A critical approach to quantify massive qualitative urban experience from social media platform
+--A critical approach to quantify mass qualitative urban experience from social media platform
 <br/>
 <br/>
 Yuanzhao WANG
@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Abstract
 
-Understanding and reflecting urban dwellers' happiness, and perception of urban space and life in urban planning has long been a challenge in China. The Chinese government has progressively brought attention to public participation and views, which had previously been ignored. However, government approaches for fostering public engagement remain scarce, while enthusiasm among individuals to express feelings and comments on government planning is lacking. Over 70% of the Chinese population has access to the internet, and 68% of them utilize social media, which can serve as a platform for gathering public sentiment and feelings. In this context, my research project proposes measuring individual citizens' emotions and characteristics of the built environment, the proximity to various urban amenities, to explore the relationships between citizens' sentiments, urban space, and urban activities. This approach can be applied to gather public feelings in the urban planning process through platforms, as a way to quantify the quality of urban life. However, research reveals serious flaws in existing social media data that could merely provide satisfied information for urban planning. The research examines the strengths and weaknesses of social media platforms and proposes a vision for using social media to solicit bottom-up citizen participation in urban planning.
+Understanding and reflecting urban dwellers' happiness, and perception of urban space and life in urban planning has long been a challenge in China. The Chinese government has progressively brought attention to public participation and views, which had previously been ignored. However, government approaches for fostering public engagement remain scarce, while enthusiasm among individuals to express feelings and comments on government planning is lacking. Over 70% of the Chinese population has access to the internet, and 68% of them utilize social media, which can serve as a platform for gathering public sentiment and feelings. In this context, my research project proposes measuring individual citizens' emotions and characteristics of the built environment, the proximity to various urban amenities, to explore the relationships between citizens' sentiments, urban space, and urban activities. This approach can be applied to gather public feelings in the urban planning process through platforms, as a way to quantify the quality of urban life. However, research reveals serious flaws in existing social media data that could merely provide satisfied information for urban planning. The research examines the strengths and weaknesses of social media platforms and proposes a vision for using social media to invite bottom-up citizen participation in urban planning.
 
 <!-- Your portfolio should demonstrate each of the following skills (not all of which are demonstrated in this example): -->
 
