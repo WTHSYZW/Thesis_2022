@@ -1,10 +1,11 @@
 ---
-title: "Repreceive the urban environment by social media posts"
+title: "Platform Participation"
 author: "Yuanzhao WANG"
 date: '2022-03-22'
 output: rmdformats::readthedown
+"Reperceive the urban environment by social media posts"
 ---
---A possible approach to quantify massive qualitative urban experience
+--A critical approach to quantify massive qualitative urban experience from social media platform
 <br/>
 <br/>
 Yuanzhao WANG

@@ -1385,6 +1385,8 @@ c = weibo_predict_sf$positive_p
 
 print (mean (b) -mean (a))
 print (mean (b) -mean (c))
+print (mean(c))
+print (mean(b))
 ```
 
 ## scenario 3: turn school into greenspace
