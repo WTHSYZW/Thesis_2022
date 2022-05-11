@@ -716,6 +716,8 @@ export_summs(full1_model, full2_model, full3_model,
                              "Refined2",
                              "Refined3"),
              coef=coeff_names)
+
+summary(full3_model)
 ```
 ## Interaction analysis with specific Types, Timeslots and Weather
 #Find out Types and Weather did not affect the results, but Timeslots mattered.
