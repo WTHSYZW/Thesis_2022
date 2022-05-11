@@ -921,7 +921,7 @@ noisy_pred_mean = rowMeans(weibo_predict[ , 5:ncol(weibo_predict)])
          
 weibo_predict$noisy_pred_mean 
 
-options(max.print=999999)
+# options(max.print=999999)
 # rowMeans(weibo_predict[ , 5:ncol(weibo_predict)])
 
 ```
