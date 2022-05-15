@@ -1,0 +1,26 @@
+---
+title: "Planning for Urban Satisfaction"
+author: "Yuanzhao Wang"
+date: "2022/5/15"
+output: pdf_document
+---
+--A critical approach to measure the quality of urban experience from a social media platform
+<br/>
+<br/>
+Yuanzhao WANG
+<br/>
+THESIS RESEARCH
+<br/>
+MDES ULE 2022
+<br/>
+Supervisor: Prof. Carole Voulgaris
+<br/>
+<br/>
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages('tinytex')
+tinytex::install_tinytex()
+```

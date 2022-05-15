@@ -288,3 +288,5 @@ This research shows:
 35)	Zhang, P., Yang, D., Qin, M., & Jing, W. (2020). Spatial heterogeneity analysis and driving forces exploring of built-up land development intensity in Chinese prefecture-level cities and implications for future Urban Land intensive use. Land Use Policy, 99, 104958.
 36)	Zhen, F., Tang, J., & Chen, Y. (2018). Spatial distribution characteristics of residents’ emotions based on Sina Weibo big data: A case study of Nanjing. In Big data support of urban planning and management (pp. 43-62). Springer, Cham.
 37) Zhang, P., Yang, D., Qin, M., & Jing, W. (2020). Spatial heterogeneity analysis and driving forces exploring of built-up land development intensity in Chinese prefecture-level cities and implications for future Urban Land intensive use. Land Use Policy, 99, 104958.
+
+
