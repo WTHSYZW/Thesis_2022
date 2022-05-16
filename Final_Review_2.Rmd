@@ -221,7 +221,7 @@ figure 18 How ideal data should address the shortcomings of existing social medi
 
 # Recommendation: A proposed social media platform 
 
-How could we design A better data gathering tool？
+How could we design A better data gathering tool?
 
 Social media platform serves as a new form of infrastructure of urban life, which is embedded in daily experience.The strengths of such social media platform can provide a mass bottom-up participation that traditional approaches can not provide. To address the shortcomings of existing social media data, the new social media platform should be capable of providing particular data on short-term satisfaction related to the built environment and long-term visions of urban planning from citizens living in that city.  
 <br/>
@@ -264,7 +264,7 @@ This research shows:
 11)	Hogertz, C. (2010). Emotions of the urban pedestrian: sensory mapping. Pedestrians’ quality needs, 31, 31-52.
 12)	Lawless, N. M., & Lucas, R. E. (2011). Predictors of regional well-being: A county level analysis. Social Indicators Research, 101(3), 341-357.
 13)	Leyden, K. M., Goldberg, A., & Michelbach, P. (2011). Understanding the pursuit of happiness in ten major cities. Urban affairs review, 47(6), 861-888.
-14)	Li, SJ., Ma, S., Zhang M., Long Y. (2018). Muiti-scale Evaluation of Urban Green Space Based on Muti-source New Data：Exploration of Main Cities in China. Landscape Architecture.
+14)	Li, SJ., Ma, S., Zhang M., Long Y. (2018). Muiti-scale Evaluation of Urban Green Space Based on Muti-source New Data: Exploration of Main Cities in China. Landscape Architecture. 
 15)	Ma, Y., Ling, C., & Wu, J. (2020). Exploring the Spatial Distribution Characteristics of Emotions of Weibo Users in Wuhan Waterfront Based on Gender Differences Using Social Media Texts. ISPRS International Journal of Geo-Information, 9(8), 465. 
 16)	Mouratidis, K. (2018). Rethinking how built environments influence subjective well-being: A new conceptual framework. Journal of Urbanism: International Research on Placemaking and Urban Sustainability, 11(1), 24-40.
 17)	OECD Better Life Index. How’s Life? 2020 Measuring Well-Being; OECD Publishing: Paris, France, 202Jiang, GH., Ma, WQ., Wang, DQ., Zhou, DY., Zhang, RJ., & Zhou, T. (2017). Identifying the internal structure evolution of urban built-up land sprawl (UBLS) from a composite structure perspective: A case study of the Beijing metropolitan area, China. Land Use Policy, 62, 258-267.
@@ -283,7 +283,7 @@ This research shows:
 30)	Wu, C., Ye, X., Ren, F., & Du, Q. (2018). Check-in behaviour and spatio-temporal vibrancy: An exploratory analysis in Shenzhen, China. Cities, 77, 104-116.
 31)	Wu, Z., & Ye, Z. (2016). Research on urban spatial structure based on Baidu heat map: A case study on the central city of Shanghai. City Planning Review, 40(4), 33–40.
 32)	Yin, C., & Shao, C. (2021). Revisiting commuting, built environment and happiness: New evidence on a nonlinear relationship. Transportation Research Part D: Transport and Environment, 100, 103043.
-33)	Yao, QA., Guan, TW., Shi, J. (2019). Coupling Development of Rail Transit and Commercial Facilities Based on Public Comment Data：Taking Tianjin as an Example. Journal of Tianjin Chengjian University.
+33)	Yao, QA., Guan, TW., Shi, J. (2019). Coupling Development of Rail Transit and Commercial Facilities Based on Public Comment Data: Taking Tianjin as an Example. Journal of Tianjin Chengjian University.
 34)	Zhang, D. G. (2019). The theoretical and practical research on Small Towns with Chinese Characteristics. People Press. 
 35)	Zhang, P., Yang, D., Qin, M., & Jing, W. (2020). Spatial heterogeneity analysis and driving forces exploring of built-up land development intensity in Chinese prefecture-level cities and implications for future Urban Land intensive use. Land Use Policy, 99, 104958.
 36)	Zhen, F., Tang, J., & Chen, Y. (2018). Spatial distribution characteristics of residents’ emotions based on Sina Weibo big data: A case study of Nanjing. In Big data support of urban planning and management (pp. 43-62). Springer, Cham.
