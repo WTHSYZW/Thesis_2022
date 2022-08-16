@@ -1,0 +1,54 @@
+---
+title: "cities"
+author: "yzw"
+date: '2022-06-13'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+options(java.parameters = "-Xmx4G")
+```
+
+## Load libraries
+
+```{r package, message=FALSE}
+library(tidyverse)
+library(sf)
+library(irr)
+library(ggthemes)
+library(jtools)
+library(gridExtra)
+library(units)
+library(ggspatial)
+library(tibble)
+library(modelr)
+library(htmlwidgets)
+library(tidytransit)
+library(leaflet)
+```
+
+```{r load cvs}
+existing <- read_csv("C:/Users/54175/Desktop/6.13/existing2.csv")
+planned <- read_csv("C:/Users/54175/Desktop/6.13/planned2.csv")
+```
+```{r Regression analysis}
+
+existing_model <- lm(Composite ~ Accessibility +
+                    Density + Compactness +
+                    Diversity,
+                    data = existing)
+
+summary(existing_model)
+
+planned_model <- lm(Composite ~ Accessibility +
+                    Density + Compactness +
+                    Diversity,
+                    data = planned)
+
+summary(planned_model)
+
+```
